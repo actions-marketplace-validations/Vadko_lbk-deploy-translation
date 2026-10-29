@@ -53,8 +53,8 @@ const InputsSchema = z.object({
     (v) => (typeof v === 'string' && v ? v.replace(/\/+$/, '') : 'https://admin.lbklauncher.com'),
     z.url()
   ),
-  // `planned` навмисно виключений — він не передбачає upload архіву,
-  // а цей action завжди постачає файл. Сервер також reject'ить planned для
+  // `planned` is excluded on purpose — it implies no archive upload,
+  // and this action always supplies a file. The server also rejects planned for
   // submit-via-token API.
   status: z
     .enum(['completed', 'in-progress', 'tech-improvement'])
